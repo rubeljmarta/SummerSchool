@@ -3,6 +3,16 @@ package com.agency04.sbss.pizza;
 
 public class PizzaDeliveryService {
 
+    private PizzeriaService pizzeriaService;
+    public PizzaDeliveryService(PizzeriaService thePizzeriaService){
+        pizzeriaService=thePizzeriaService;
+
+    }
+
+    public void setPizzeriaService(PizzeriaService pizzeriaService) {
+        this.pizzeriaService = pizzeriaService;
+    }
+
     private String name;
     private String address;
     private String phoneNumber;
@@ -32,25 +42,24 @@ public class PizzaDeliveryService {
     }
 
 
-    private PizzeriaService pizzeriaService;
-
-    public PizzaDeliveryService(){}
-
-    public PizzaDeliveryService(PizzeriaService thePizzeriaService){
-        pizzeriaService=thePizzeriaService;
-    }
-
-
     public  String orderPizza(Pizza thePizza){
         String s = "Delivering pizza: " + pizzeriaService.makePizza(thePizza) +
                 "\n Address: " + pizzeriaService.getAddress() +
                 "\n Name: " + pizzeriaService.getName() +
                 "\n Phone Number: " + pizzeriaService.getPhoneNumber() + "\n";
 
-
         return s;
 
     }
+
+
+
+
+
+
+
+
+
 
 
 }

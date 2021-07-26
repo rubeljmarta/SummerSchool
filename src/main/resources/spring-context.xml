@@ -7,6 +7,7 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <context:component-scan base-package="com/agency04/sbss/pizza"/>
     <!-- load properties file -->
     <context:property-placeholder location="classpath*:application.properties"/>
 
@@ -38,20 +39,16 @@
     <bean id="myPizzaDeliveryService"
         class="com.agency04.sbss.pizza.PizzaDeliveryService">
         <constructor-arg ref="myPizzeria"/>
-        <property name="name" value="Mrak"/>
-        <property name="address" value="Ante Starcevica"/>
-        <property name="phoneNumber" value="0956320000"/>
-
-    </bean>
-
-    <bean id="mySecondPizzaDeliveryService"
-          class="com.agency04.sbss.pizza.SecondPizzaDeliveryService">
         <property name="pizzeriaService" ref="myPizzeriaSpeedy"/>
+<!--        <property name="name" value="Mrak"/>
+        <property name="address" value="Ante Starcevica"/>
+        <property name="phoneNumber" value="0956320000"/>-->
         <property name="name" value="${name}"/>
         <property name="address" value="${address}"/>
         <property name="phoneNumber" value="${phoneNumber}"/>
 
     </bean>
+
 
 
 
