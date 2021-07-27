@@ -1,7 +1,7 @@
-package com.agency04.sbss.pizza.model;
+package com.agency04.sbss.pizza.service.service.impl;
 
 
-import com.agency04.sbss.pizza.service.Pizza;
+import com.agency04.sbss.pizza.model.Pizza;
 import com.agency04.sbss.pizza.service.PizzaDeliveryService;
 import com.agency04.sbss.pizza.service.PizzeriaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +15,10 @@ public class PizzaDelivery implements PizzaDeliveryService {
     @Qualifier("pizzeria")
     private PizzeriaService pizzeriaService;
 
-
 /*    //Constructor injection
     @Autowired
     public PizzaDelivery(@Qualifier("pizzeria")PizzeriaService thePizzeriaService){
         pizzeriaService=thePizzeriaService;
-
     }
 
     //Setter injection
@@ -28,9 +26,7 @@ public class PizzaDelivery implements PizzaDeliveryService {
     @Qualifier("pizzeriaSpeedy")
     public void setPizzeriaService(PizzeriaService pizzeriaService) {
         this.pizzeriaService = pizzeriaService;
-
     }*/
-
 
     @Override
     public String orderPizza(Pizza thePizza) {
@@ -40,7 +36,5 @@ public class PizzaDelivery implements PizzaDeliveryService {
                 "\n Name: " + pizzeriaService.getName() +
                 "\n Phone Number: " + pizzeriaService.getPhoneNumber() + "\n";
         return s;
-
-
     }
 }

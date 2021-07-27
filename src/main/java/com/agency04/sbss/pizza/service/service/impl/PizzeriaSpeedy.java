@@ -1,6 +1,6 @@
-package com.agency04.sbss.pizza.model;
+package com.agency04.sbss.pizza.service.service.impl;
 
-import com.agency04.sbss.pizza.service.Pizza;
+import com.agency04.sbss.pizza.model.Pizza;
 import com.agency04.sbss.pizza.service.PizzeriaService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -16,7 +16,6 @@ public class PizzeriaSpeedy implements PizzeriaService {
 
     @Value("0915263200")
     private String phoneNumber;
-
 
     public void setName(String name) {
         this.name = name;
@@ -50,5 +49,4 @@ public class PizzeriaSpeedy implements PizzeriaService {
         return pizza.getName() + "\n Ingredients: " + pizza.getIngredients();
 
     }
-
 }
