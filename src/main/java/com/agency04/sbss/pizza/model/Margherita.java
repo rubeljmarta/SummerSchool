@@ -1,11 +1,11 @@
-package com.agency04.sbss.pizza;
+package com.agency04.sbss.pizza.model;
 
+import com.agency04.sbss.pizza.service.Pizza;
 import org.springframework.stereotype.Component;
 
-@Component("margherita")
+@Component
 public class Margherita implements Pizza {
 
-    public  Margherita(){}
 
     @Override
     public String getName() {

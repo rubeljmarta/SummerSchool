@@ -1,8 +1,12 @@
-package com.agency04.sbss.pizza;
+package com.agency04.sbss.pizza.model;
 
+
+import com.agency04.sbss.pizza.service.Pizza;
+import org.springframework.stereotype.Component;
+
+@Component
 public class Marinara implements Pizza {
 
-    public  Marinara(){}
 
 
     @Override

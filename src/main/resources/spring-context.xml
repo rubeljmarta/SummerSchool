@@ -12,42 +12,8 @@
     <context:property-placeholder location="classpath*:application.properties"/>
 
     <!-- Define your Beans here -->
-    <bean id="myMargherita"
-          class="com.agency04.sbss.pizza.Margherita">
-    </bean>
-
-    <bean id="myMarinara"
-          class="com.agency04.sbss.pizza.Marinara">
-    </bean>
-    <bean id="myQuattroStagioni"
-          class="com.agency04.sbss.pizza.QuattroStagioni">
-    </bean>
 
 
-
-    <bean id="myPizzeria"
-        class="com.agency04.sbss.pizza.Pizzeria">
-
-    </bean>
-
-    <bean id="myPizzeriaSpeedy"
-          class="com.agency04.sbss.pizza.PizzeriaSpeedy">
-    </bean>
-
-
-
-    <bean id="myPizzaDeliveryService"
-        class="com.agency04.sbss.pizza.PizzaDeliveryService">
-        <constructor-arg ref="myPizzeria"/>
-        <property name="pizzeriaService" ref="myPizzeriaSpeedy"/>
-<!--        <property name="name" value="Mrak"/>
-        <property name="address" value="Ante Starcevica"/>
-        <property name="phoneNumber" value="0956320000"/>-->
-        <property name="name" value="${name}"/>
-        <property name="address" value="${address}"/>
-        <property name="phoneNumber" value="${phoneNumber}"/>
-
-    </bean>
 
 
 
