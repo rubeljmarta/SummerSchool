@@ -1,4 +1,4 @@
-package com.agency04.sbss.pizza.service.service.impl;
+package com.agency04.sbss.pizza.service.impl;
 
 import com.agency04.sbss.pizza.model.Pizza;
 import com.agency04.sbss.pizza.service.PizzeriaService;
@@ -6,15 +6,15 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-public class PizzeriaSpeedy implements PizzeriaService {
+public class Pizzeria implements PizzeriaService {
 
-    @Value("Mrak")
+    @Value("${name}")
     private String name;
 
-    @Value("Ante Stacevica")
+    @Value("${address}")
     private String address;
 
-    @Value("0915263200")
+    @Value("${phoneNumber}")
     private String phoneNumber;
 
     public void setName(String name) {
@@ -47,6 +47,5 @@ public class PizzeriaSpeedy implements PizzeriaService {
     @Override
     public String makePizza(Pizza pizza) {
         return pizza.getName() + "\n Ingredients: " + pizza.getIngredients();
-
     }
 }
