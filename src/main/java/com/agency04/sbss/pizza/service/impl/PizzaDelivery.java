@@ -1,14 +1,15 @@
 package com.agency04.sbss.pizza.service.impl;
 
-
 import com.agency04.sbss.pizza.model.Pizza;
 import com.agency04.sbss.pizza.service.PizzaDeliveryService;
 import com.agency04.sbss.pizza.service.PizzeriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+@Scope("prototype")
 public class PizzaDelivery implements PizzaDeliveryService {
 
     @Autowired

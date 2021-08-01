@@ -5,8 +5,12 @@ import com.agency04.sbss.pizza.service.PizzeriaService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 @Component
 public class Pizzeria implements PizzeriaService {
+
 
     @Value("${name}")
     private String name;
@@ -27,6 +31,19 @@ public class Pizzeria implements PizzeriaService {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    @PostConstruct
+    public void postConstructor(){
+        this.name="Gusti";
+        this.address="Vukovarska ulica";
+        this.phoneNumber="0955414125";
+        System.out.println("PostConstructor message: Order from new pizzeria " + this.name);
+    }
+
+    @PreDestroy
+    public void postDestroy(){
+        System.out.println("PreDestroy message: Successful order!");
     }
 
     @Override

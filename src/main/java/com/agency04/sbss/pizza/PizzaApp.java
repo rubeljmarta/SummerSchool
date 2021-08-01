@@ -14,6 +14,8 @@ public class PizzaApp {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath*:spring-context.xml");
         PizzaDeliveryService thePizzaDeliveryService = context.getBean("pizzaDelivery", PizzaDeliveryService.class);
 
+        PizzaDeliveryService theSecondPizzaDeliveryService = context.getBean("pizzaDelivery", PizzaDeliveryService.class);
+
         Pizza theMargherita = new Margherita();
         System.out.println(thePizzaDeliveryService.orderPizza(theMargherita));
 
@@ -22,6 +24,11 @@ public class PizzaApp {
 
         Pizza theQuattroStagioni = new QuattroStagioni();
         System.out.println(thePizzaDeliveryService.orderPizza(theQuattroStagioni));
+
+        boolean result = (thePizzaDeliveryService == theSecondPizzaDeliveryService);
+        System.out.println("\nPointing to the same object: " + result);
+        System.out.println("\nMemory location for thePizzaDeliveryService" + thePizzaDeliveryService);
+        System.out.println("\nMemory location for theSecondPizzaDeliveryService" + theSecondPizzaDeliveryService);
 
         context.close();
     }
