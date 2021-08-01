@@ -7,21 +7,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
-@Scope("prototype")
+//@Component
+@Service
+//@Scope("prototype")
 public class PizzaDelivery implements PizzaDeliveryService {
 
-    @Autowired
-    @Qualifier("pizzeria")
+    //@Autowired
+    //@Qualifier("pizzeria")
     private PizzeriaService pizzeriaService;
 
-/*    //Constructor injection
-    @Autowired
-    public PizzaDelivery(@Qualifier("pizzeria")PizzeriaService thePizzeriaService){
+    //Constructor injection
+    //@Autowired
+    public PizzaDelivery(PizzeriaService thePizzeriaService){
         pizzeriaService=thePizzeriaService;
     }
 
+/*
     //Setter injection
     @Autowired
     @Qualifier("pizzeriaSpeedy")

@@ -4,13 +4,14 @@ import com.agency04.sbss.pizza.model.Pizza;
 import com.agency04.sbss.pizza.service.PizzeriaService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
-@Component
+//@Component
+@Service
 public class Pizzeria implements PizzeriaService {
-
 
     @Value("${name}")
     private String name;
@@ -35,9 +36,9 @@ public class Pizzeria implements PizzeriaService {
 
     @PostConstruct
     public void postConstructor(){
-        this.name="Gusti";
+/*        this.name="Gusti";
         this.address="Vukovarska ulica";
-        this.phoneNumber="0955414125";
+        this.phoneNumber="0955414125";*/
         System.out.println("PostConstructor message: Order from new pizzeria " + this.name);
     }
 

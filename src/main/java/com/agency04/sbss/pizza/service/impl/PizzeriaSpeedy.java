@@ -4,8 +4,11 @@ import com.agency04.sbss.pizza.model.Pizza;
 import com.agency04.sbss.pizza.service.PizzeriaService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+
+//@Component
+@Service
 public class PizzeriaSpeedy implements PizzeriaService {
 
     @Value("Mrak")
