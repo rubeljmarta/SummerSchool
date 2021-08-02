@@ -9,6 +9,9 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 //@Component
 @Service
 //@Scope("prototype")
@@ -23,7 +26,6 @@ public class PizzaDelivery implements PizzaDeliveryService {
     public PizzaDelivery(PizzeriaService thePizzeriaService){
         pizzeriaService=thePizzeriaService;
     }
-
 /*
     //Setter injection
     @Autowired
@@ -36,9 +38,18 @@ public class PizzaDelivery implements PizzaDeliveryService {
     public String orderPizza(Pizza thePizza) {
 
         String s = "Delivering pizza: " + pizzeriaService.makePizza(thePizza) +
-                "\n Address: " + pizzeriaService.getAddress() +
-                "\n Name: " + pizzeriaService.getName() +
-                "\n Phone Number: " + pizzeriaService.getPhoneNumber() + "\n";
+                "<br> Address: " + pizzeriaService.getAddress() +
+                "<br> Name: " + pizzeriaService.getName() +
+                "<br> Phone Number: " + pizzeriaService.getPhoneNumber() + "<br>";
         return s;
+    }
+    @PostConstruct
+    public void Start(){
+        System.out.println("Order from pizzeria: " + pizzeriaService.getName());
+    }
+
+    @PreDestroy
+    public void Stop(){
+        System.out.println("Closed pizzeria: " + pizzeriaService.getName());
     }
 }

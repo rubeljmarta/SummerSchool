@@ -5,13 +5,17 @@ import com.agency04.sbss.pizza.model.Marinara;
 import com.agency04.sbss.pizza.model.QuattroStagioni;
 import com.agency04.sbss.pizza.model.Pizza;
 import com.agency04.sbss.pizza.service.PizzaDeliveryService;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+@SpringBootApplication
 public class PizzaApp {
 
     public static void main(String[] args) {
 
-        //ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath*:spring-context.xml");
+        SpringApplication.run(PizzaApp.class,args);
+/*        //ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath*:spring-context.xml");
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(PizzaConfig.class);
         PizzaDeliveryService thePizzaDeliveryService = context.getBean("pizzaDelivery", PizzaDeliveryService.class);
 
@@ -31,6 +35,6 @@ public class PizzaApp {
         System.out.println("\nMemory location for thePizzaDeliveryService" + thePizzaDeliveryService);
         System.out.println("\nMemory location for theSecondPizzaDeliveryService" + theSecondPizzaDeliveryService);
 
-        context.close();
+        context.close();*/
     }
 }

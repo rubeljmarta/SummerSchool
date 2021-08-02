@@ -6,9 +6,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
-
 //@Component
 @Service
 public class Pizzeria implements PizzeriaService {
@@ -34,19 +31,6 @@ public class Pizzeria implements PizzeriaService {
         this.phoneNumber = phoneNumber;
     }
 
-    @PostConstruct
-    public void postConstructor(){
-/*        this.name="Gusti";
-        this.address="Vukovarska ulica";
-        this.phoneNumber="0955414125";*/
-        System.out.println("PostConstructor message: Order from new pizzeria " + this.name);
-    }
-
-    @PreDestroy
-    public void postDestroy(){
-        System.out.println("PreDestroy message: Successful order!");
-    }
-
     @Override
     public String getName() {
         return name;
@@ -64,6 +48,6 @@ public class Pizzeria implements PizzeriaService {
 
     @Override
     public String makePizza(Pizza pizza) {
-        return pizza.getName() + "\n Ingredients: " + pizza.getIngredients();
+        return pizza.getName() + "<br> Ingredients: " + pizza.getIngredients();
     }
 }
