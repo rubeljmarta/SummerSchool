@@ -44,6 +44,6 @@ public class Pizzeria implements PizzeriaService {
 
     @Override
     public String makePizza(Pizza pizza) {
-        return pizza.getName() + "\n Ingredients: " + pizza.getIngredients();
+        return pizza.getName() + "<br> Ingredients: " + pizza.getIngredients();
     }
 }

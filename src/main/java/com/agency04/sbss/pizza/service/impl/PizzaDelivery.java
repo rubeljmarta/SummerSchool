@@ -31,9 +31,9 @@ public class PizzaDelivery implements PizzaDeliveryService {
     public String orderPizza(Pizza thePizza) {
 
         String s = "Delivering pizza: " + pizzeriaService.makePizza(thePizza) +
-                "\n Address: " + pizzeriaService.getAddress() +
-                "\n Name: " + pizzeriaService.getName() +
-                "\n Phone Number: " + pizzeriaService.getPhoneNumber() + "\n";
+                "<br> Address: " + pizzeriaService.getAddress() +
+                "<br> Name: " + pizzeriaService.getName() +
+                "<br> Phone Number: " + pizzeriaService.getPhoneNumber() + "<br>";
         return s;
     }
 
