@@ -7,19 +7,16 @@ import com.agency04.sbss.pizza.model.Pizza;
 import com.agency04.sbss.pizza.service.PizzaDeliveryService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
 public class PizzaApp {
 
     public static void main(String[] args) {
 
-        SpringApplication.run(PizzaApp.class,args);
-/*        //ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath*:spring-context.xml");
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(PizzaConfig.class);
-        PizzaDeliveryService thePizzaDeliveryService = context.getBean("pizzaDelivery", PizzaDeliveryService.class);
+        ConfigurableApplicationContext context = SpringApplication.run(PizzaApp.class, args);
 
-        PizzaDeliveryService theSecondPizzaDeliveryService = context.getBean("pizzaDelivery", PizzaDeliveryService.class);
+        PizzaDeliveryService thePizzaDeliveryService = context.getBean("pizzaDelivery", PizzaDeliveryService.class);
 
         Pizza theMargherita = new Margherita();
         System.out.println(thePizzaDeliveryService.orderPizza(theMargherita));
@@ -30,11 +27,6 @@ public class PizzaApp {
         Pizza theQuattroStagioni = new QuattroStagioni();
         System.out.println(thePizzaDeliveryService.orderPizza(theQuattroStagioni));
 
-        boolean result = (thePizzaDeliveryService == theSecondPizzaDeliveryService);
-        System.out.println("\nPointing to the same object: " + result);
-        System.out.println("\nMemory location for thePizzaDeliveryService" + thePizzaDeliveryService);
-        System.out.println("\nMemory location for theSecondPizzaDeliveryService" + theSecondPizzaDeliveryService);
-
-        context.close();*/
+        //context.close();
     }
 }

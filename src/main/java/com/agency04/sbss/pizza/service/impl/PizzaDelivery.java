@@ -4,28 +4,21 @@ import com.agency04.sbss.pizza.model.Pizza;
 import com.agency04.sbss.pizza.service.PizzaDeliveryService;
 import com.agency04.sbss.pizza.service.PizzeriaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
-//@Component
-@Service
-//@Scope("prototype")
+@Service("pizzaDelivery")
 public class PizzaDelivery implements PizzaDeliveryService {
 
-    //@Autowired
-    //@Qualifier("pizzeria")
+    @Autowired
     private PizzeriaService pizzeriaService;
 
-    //Constructor injection
+/*    //Constructor injection
     //@Autowired
     public PizzaDelivery(PizzeriaService thePizzeriaService){
         pizzeriaService=thePizzeriaService;
-    }
+    }*/
 /*
     //Setter injection
     @Autowired
@@ -38,11 +31,12 @@ public class PizzaDelivery implements PizzaDeliveryService {
     public String orderPizza(Pizza thePizza) {
 
         String s = "Delivering pizza: " + pizzeriaService.makePizza(thePizza) +
-                "<br> Address: " + pizzeriaService.getAddress() +
-                "<br> Name: " + pizzeriaService.getName() +
-                "<br> Phone Number: " + pizzeriaService.getPhoneNumber() + "<br>";
+                "\n Address: " + pizzeriaService.getAddress() +
+                "\n Name: " + pizzeriaService.getName() +
+                "\n Phone Number: " + pizzeriaService.getPhoneNumber() + "\n";
         return s;
     }
+
     @PostConstruct
     public void Start(){
         System.out.println("Order from pizzeria: " + pizzeriaService.getName());
