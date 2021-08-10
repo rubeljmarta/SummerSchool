@@ -13,4 +13,3 @@ public class Margherita implements Pizza {
         return Ingredients.tomato_Sauce + ", " + Ingredients.mozzarella + ", " + Ingredients.oregano;
     }
 }
-

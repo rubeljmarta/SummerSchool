@@ -3,29 +3,27 @@ package com.agency04.sbss.pizza.service.impl;
 import com.agency04.sbss.pizza.model.Pizza;
 import com.agency04.sbss.pizza.service.PizzeriaService;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
 
-@Service
-public class PizzeriaSpeedy implements PizzeriaService {
+public class PizzeriaMaslina implements PizzeriaService {
 
-    @Value("Speedy")
+    @Value("${name}")
     private String name;
 
-    @Value("Ante Stacevica")
+    @Value("${address}")
     private String address;
 
-    @Value("0915263200")
-    private String phoneNumber;
-
-    public PizzeriaSpeedy() {
+    public PizzeriaMaslina() {
 
     }
 
-    public PizzeriaSpeedy(String name, String address, String phoneNumber) {
+    public PizzeriaMaslina(String name, String address, String phoneNumber) {
         this.name = name;
         this.address = address;
         this.phoneNumber = phoneNumber;
     }
+
+    @Value("${phoneNumber}")
+    private String phoneNumber;
 
     public void setName(String name) {
         this.name = name;
