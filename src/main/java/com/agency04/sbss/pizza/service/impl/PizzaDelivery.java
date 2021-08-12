@@ -34,7 +34,17 @@ public class PizzaDelivery implements PizzaDeliveryService {
 
     @Override
     public void addOrder(DeliveryOrderForm theDeliveryOrderForm) {
-        orderList.add(theDeliveryOrderForm);
+        if(theDeliveryOrderForm.getPizza().getName().equals("Margherita") ||
+                theDeliveryOrderForm.getPizza().getName().equals("Marinara") ||
+                theDeliveryOrderForm.getPizza().getName().equals("QuattroStagioni")
+        ){
+            orderList.add(theDeliveryOrderForm);
+            return;
+        }
+        else {
+            throw new PizzaNotFoundException();
+        }
+
     }
 
     @Override
