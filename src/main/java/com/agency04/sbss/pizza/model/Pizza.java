@@ -1,13 +1,13 @@
 package com.agency04.sbss.pizza.model;
 
-
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
         include = JsonTypeInfo.As.PROPERTY,
-        property = "pizzaType"
+        property = "pizzaType",
+        defaultImpl = EmptyPizza.class
 )
 @JsonSubTypes({
         @JsonSubTypes.Type(value = Margherita.class, name = "Margherita"),

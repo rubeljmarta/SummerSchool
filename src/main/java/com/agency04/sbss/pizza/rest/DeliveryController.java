@@ -14,12 +14,12 @@ public class DeliveryController {
     private PizzaDeliveryService thePizzaDeliveryService;
 
     @PostMapping("/order")
-    public void addOrder(@RequestBody DeliveryOrderForm delivery){
-        thePizzaDeliveryService.addOrder(delivery);
+    public void newOrder(@RequestBody DeliveryOrderForm delivery){
+        thePizzaDeliveryService.newOrder(delivery);
     }
 
     @GetMapping("/list")
-    public List<DeliveryOrderForm> getDeliveryList(){
-        return thePizzaDeliveryService.getOrders();
+    public List<DeliveryOrderForm> orderList(){
+        return thePizzaDeliveryService.orderList();
     }
 }

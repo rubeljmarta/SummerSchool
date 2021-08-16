@@ -3,6 +3,7 @@ package com.agency04.sbss.pizza.service.impl;
 import com.agency04.sbss.pizza.exception.PizzaNotFoundException;
 import com.agency04.sbss.pizza.model.*;
 import com.agency04.sbss.pizza.service.PizzaDeliveryService;
+import com.agency04.sbss.pizza.service.PizzaMenu;
 import com.agency04.sbss.pizza.service.PizzeriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,11 @@ import java.util.List;
 
 @Service("pizzaDelivery")
 public class PizzaDelivery implements PizzaDeliveryService {
+
+    @Autowired
+    private PizzaMenu pizzaMenu;
+
+    private Pizza pizza;
 
     @Autowired
     private PizzeriaService pizzeriaService;
@@ -33,22 +39,18 @@ public class PizzaDelivery implements PizzaDeliveryService {
     }
 
     @Override
-    public void addOrder(DeliveryOrderForm theDeliveryOrderForm) {
-        if(theDeliveryOrderForm.getPizza().getName().equals("Margherita") ||
-                theDeliveryOrderForm.getPizza().getName().equals("Marinara") ||
-                theDeliveryOrderForm.getPizza().getName().equals("QuattroStagioni")
-        ){
+    public void newOrder(DeliveryOrderForm theDeliveryOrderForm) {
+
+        if(theDeliveryOrderForm.getPizza().getName() != null){
             orderList.add(theDeliveryOrderForm);
             return;
         }
-        else {
-            throw new PizzaNotFoundException();
-        }
+        throw new PizzaNotFoundException();
 
     }
 
     @Override
-    public List<DeliveryOrderForm> getOrders() {
+    public List<DeliveryOrderForm> orderList() {
         return orderList;
     }
 

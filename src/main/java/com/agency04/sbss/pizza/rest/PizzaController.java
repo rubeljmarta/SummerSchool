@@ -1,6 +1,7 @@
 package com.agency04.sbss.pizza.rest;
 
 import com.agency04.sbss.pizza.model.*;
+import com.agency04.sbss.pizza.service.PizzaMenu;
 import com.agency04.sbss.pizza.service.PizzeriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,36 +14,36 @@ import java.util.List;
 @RequestMapping("/api/pizzeria")
 public class PizzaController {
 
-    private PizzaMenu thePizzaMenu;
+    @Autowired
+    private PizzaMenu pizzaMenu;
 
     @Autowired
     private PizzeriaService pizzeria;
 
     @PostConstruct
     public void load(){
-        thePizzaMenu =new PizzaMenu();
 
         ArrayList<String> sizes=new ArrayList<String>();
         sizes.add("Small");
         sizes.add("Medium");
         sizes.add("Jumbo");
-        thePizzaMenu.setSizes(sizes);
 
         List<Pizza> pizzas = new ArrayList<>();
         pizzas.add(new Margherita());
         pizzas.add(new Marinara());
         pizzas.add(new QuattroStagioni());
-        thePizzaMenu.setPizzas(pizzas);
+
+        pizzaMenu.newMenu(pizzas,sizes);
     }
 
     @GetMapping("/menu")
-    public PizzaMenu getMenu(){
+    public PizzaMenu pizzaMenu(){
 
-        return thePizzaMenu;
+        return pizzaMenu;
     }
 
     @GetMapping("")
-    public  PizzeriaService getPizzerias(){
+    public  PizzeriaService pizzeria(){
         return pizzeria;
     }
 }

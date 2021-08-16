@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface PizzaDeliveryService {
     public String orderPizza(Pizza thePizza);
-    public void addOrder(DeliveryOrderForm theDeliveryOrderForm);
-    public List<DeliveryOrderForm> getOrders();
+    public void newOrder(DeliveryOrderForm theDeliveryOrderForm);
+    public List<DeliveryOrderForm> orderList();
 }

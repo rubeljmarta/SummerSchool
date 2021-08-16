@@ -4,6 +4,8 @@ import com.agency04.sbss.pizza.model.*;
 import com.agency04.sbss.pizza.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.PostConstruct;
 import java.util.*;
 
 @RestController
@@ -13,28 +15,35 @@ public class CustomerController {
     @Autowired
     private CustomerService theCustomerService;
 
+    @PostConstruct
+    public void load(){
+        theCustomerService.newCustomer(new Customer("Marta", "Benka Benkovica 1H","0977852258"));
+        theCustomerService.newCustomer(new Customer("Marko", "Put Nina 115B","0998541487"));
+        theCustomerService.newCustomer(new Customer("Josipa", "Ante starcevica 32","0985545696"));
+    }
+
     @GetMapping("/{name}")
-    public Customer getCustomer(@PathVariable("name") String name){
-        return theCustomerService.getByName(name);
+    public Customer customerByName(@PathVariable("name") String name){
+        return theCustomerService.customerByName(name);
     }
 
     @GetMapping("")
-    public List<Customer> all_customer(){
-        return theCustomerService.getAll();
+    public List<Customer> allCustomers(){
+        return theCustomerService.allCustomers();
     }
 
     @PostMapping("")
-    public void addCustomer(@RequestBody Customer customer){
-        theCustomerService.addNew(customer);
+    public void newCustomer(@RequestBody Customer customer){
+        theCustomerService.newCustomer(customer);
     }
 
     @PutMapping("")
-    public void update(@RequestBody Customer customer){
-        theCustomerService.update(customer);
+    public void updateCustomer(@RequestBody Customer customer){
+        theCustomerService.updateCustomer(customer);
     }
 
     @DeleteMapping("/{name}")
-    public void deleteCustomer(@PathVariable("name") String name){
-        theCustomerService.deleteByName(name);
+    public void deleteCustomerByName(@PathVariable("name") String name){
+        theCustomerService.deleteCustomerByName(name);
     }
 }
