@@ -1,19 +1,17 @@
-package com.agency04.sbss.pizza.service.impl;
+package com.agency04.sbss.pizza.model;
 
-import com.agency04.sbss.pizza.model.Pizza;
-import com.agency04.sbss.pizza.service.PizzeriaService;
-import org.springframework.beans.factory.annotation.Value;
+public class Customer {
 
-public class Pizzeria implements PizzeriaService {
-
-    @Value("${name}")
     private String name;
-
-    @Value("${address}")
     private String address;
-
-    @Value("${phoneNumber}")
     private String phoneNumber;
+
+    public Customer(){};
+    public Customer(String name, String address, String phoneNumber) {
+        this.name = name;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -27,23 +25,15 @@ public class Pizzeria implements PizzeriaService {
         this.phoneNumber = phoneNumber;
     }
 
-    @Override
     public String getName() {
         return name;
     }
 
-    @Override
     public String getAddress() {
         return address;
     }
 
-    @Override
     public String getPhoneNumber() {
         return phoneNumber;
-    }
-
-    @Override
-    public String makePizza(Pizza pizza) {
-        return pizza.getName() + "<br> Ingredients: " + pizza.getIngredients();
     }
 }

@@ -4,7 +4,7 @@ public class QuattroStagioni implements Pizza {
 
     @Override
     public String getName() {
-        return "Quattro Stagioni";
+        return "QuattroStagioni";
     }
 
     @Override

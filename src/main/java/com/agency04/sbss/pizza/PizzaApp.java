@@ -1,10 +1,7 @@
 package com.agency04.sbss.pizza;
 
 import com.agency04.sbss.pizza.model.Margherita;
-import com.agency04.sbss.pizza.model.Marinara;
-import com.agency04.sbss.pizza.model.QuattroStagioni;
 import com.agency04.sbss.pizza.model.Pizza;
-import com.agency04.sbss.pizza.rest.Controller;
 import com.agency04.sbss.pizza.service.PizzaDeliveryService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,6 +19,5 @@ public class PizzaApp {
         Pizza theMargherita = new Margherita();
         System.out.println(thePizzaDeliveryService.orderPizza(theMargherita));
 
-        //context.close();
     }
 }
