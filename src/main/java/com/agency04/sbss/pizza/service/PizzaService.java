@@ -4,6 +4,7 @@ import com.agency04.sbss.pizza.model.Pizza;
 
 import java.util.List;
 
-public interface PizzaMenu {
-    public void setPizzas(List<Pizza> pizzas);
+public interface PizzaService {
+    public List<Pizza> getAll();
+    public void newPizza(Pizza pizza);
 }

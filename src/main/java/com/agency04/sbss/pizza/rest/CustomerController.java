@@ -3,9 +3,10 @@ package com.agency04.sbss.pizza.rest;
 import com.agency04.sbss.pizza.model.*;
 import com.agency04.sbss.pizza.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.PostConstruct;
 import java.util.*;
 
 @RestController
@@ -14,13 +15,6 @@ public class CustomerController {
 
     @Autowired
     private CustomerService theCustomerService;
-
-    @PostConstruct
-    public void load(){
-        theCustomerService.newCustomer(new Customer("Marta", "Benka Benkovica 1H","0977852258"));
-        theCustomerService.newCustomer(new Customer("Marko", "Put Nina 115B","0998541487"));
-        theCustomerService.newCustomer(new Customer("Josipa", "Ante starcevica 32","0985545696"));
-    }
 
     @GetMapping("/{name}")
     public Customer customerByName(@PathVariable("name") String name){
@@ -33,13 +27,15 @@ public class CustomerController {
     }
 
     @PostMapping("")
-    public void newCustomer(@RequestBody Customer customer){
-        theCustomerService.newCustomer(customer);
+    public ResponseEntity<Customer> newCustomer(@RequestBody Customer customer){
+        Customer theCustomer = theCustomerService.createOrUpdateCustomer(customer);
+        return new ResponseEntity<Customer>(theCustomer, HttpStatus.CREATED);
     }
 
     @PutMapping("")
-    public void updateCustomer(@RequestBody Customer customer){
-        theCustomerService.updateCustomer(customer);
+    public ResponseEntity<Customer> updateCustomer(@RequestBody Customer customer){
+        Customer theCustomer = theCustomerService.createOrUpdateCustomer(customer);
+        return new ResponseEntity<Customer>(theCustomer, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{name}")
