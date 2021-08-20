@@ -1,12 +1,11 @@
 package com.agency04.sbss.pizza.service;
 
-import com.agency04.sbss.pizza.model.Pizza;
-import com.agency04.sbss.pizza.model.DeliveryOrderForm;
+import com.agency04.sbss.pizza.model.*;
 
 import java.util.List;
 
 public interface PizzaDeliveryService {
-    public String orderPizza(Pizza thePizza);
-    public void newOrder(DeliveryOrderForm theDeliveryOrderForm);
-    public List<DeliveryOrderForm> orderList();
+    public List<Delivery> getAll();
+    public Delivery createOrUpdateDelivery(Delivery delivery);
+    public String orderPizza(Pizza pizza);
 }
